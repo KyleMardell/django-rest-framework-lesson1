@@ -10,7 +10,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=255, blank=True)
     content = models.TextField(blank=True)
     image = models.ImageField(
-        upload_to='images/', default='https://res.cloudinary.com/dikde3vj3/image/upload/v1732370968/default_profile_f0fbij.jpg'
+        upload_to='images/', default='https://res.cloudinary.com/dikde3vj3/image/upload/v<version>/default_profile_f0fbij.jpg'
     )
 
 
