@@ -34,7 +34,7 @@ class PostList(APIView):
             )
 
 
-class PostDetail(self, request):
+class PostDetail(APIView):
 
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]
@@ -44,7 +44,7 @@ class PostDetail(self, request):
             post = Post.objects.get(pk=pk)
             self.check_object_permissions(self.request, post)
             return post
-        except Profile.DoesNotExist:
+        except Post.DoesNotExist:
             raise Http404
 
     def get(self, request, pk):
