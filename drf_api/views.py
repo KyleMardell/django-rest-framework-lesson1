@@ -1,6 +1,9 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from django.conf import settings  # Import settings instead of individual variables
+from .settings import (
+    JWT_AUTH_COOKIE, JWT_AUTH_REFRESH_COOKIE, JWT_AUTH_SAMESITE,
+    JWT_AUTH_SECURE,
+)
 
 
 @api_view()
@@ -15,21 +18,21 @@ def root_route(request):
 def logout_route(request):
     response = Response()
     response.set_cookie(
-        key=settings.REST_AUTH['JWT_AUTH_COOKIE'],  # Access dictionary keys properly
+        key=JWT_AUTH_COOKIE,
         value='',
         httponly=True,
         expires='Thu, 01 Jan 1970 00:00:00 GMT',
         max_age=0,
-        samesite=settings.REST_AUTH['JWT_AUTH_SAMESITE'],  # Same here
-        secure=getattr(settings, 'JWT_AUTH_SECURE', False),  # Handle `JWT_AUTH_SECURE` dynamically
+        samesite=JWT_AUTH_SAMESITE,
+        secure=JWT_AUTH_SECURE,
     )
     response.set_cookie(
-        key=settings.REST_AUTH['JWT_AUTH_REFRESH_COOKIE'],  # Same fix
+        key=JWT_AUTH_REFRESH_COOKIE,
         value='',
         httponly=True,
         expires='Thu, 01 Jan 1970 00:00:00 GMT',
         max_age=0,
-        samesite=settings.REST_AUTH['JWT_AUTH_SAMESITE'],
-        secure=getattr(settings, 'JWT_AUTH_SECURE', False),
+        samesite=JWT_AUTH_SAMESITE,
+        secure=JWT_AUTH_SECURE,
     )
     return response
