@@ -67,7 +67,7 @@ DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
     '8000-kylemardell-djangorestf-p1ue2lncgm6.ws.codeinstitute-ide.net',
-    'django-rest-framework-lessons.herokuapp.com'
+    'django-rest-framework-lessons-531e198ca80d.herokuapp.com'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
