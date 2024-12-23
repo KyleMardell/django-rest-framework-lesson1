@@ -46,11 +46,9 @@ if 'DEV' not in os.environ:
 
 REST_USE_JWT = True
 JWT_AUTH_SECURE = True
-REST_AUTH = {
-    'JWT_AUTH_COOKIE': 'my-app-auth',
-    'JWT_AUTH_REFRESH_COOKIE': 'my-refresh-token',
-    'JWT_AUTH_SAMESITE': 'None',
-}
+JWT_AUTH_COOKIE = 'my-app-auth'
+JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
+JWT_AUTH_SAMESITE = 'None'
 
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'drf_api.serializers.CurrentUserSerializer'
@@ -67,12 +65,12 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
-    '8000-kylemardell-djangorestf-p1ue2lncgm6.ws.codeinstitute-ide.net',
+    '8000-kylemardell-djangorestf-fvsoltao0z8.ws.codeinstitute-ide.net',
     'django-rest-framework-lessons-531e198ca80d.herokuapp.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-kylemardell-djangorestf-p1ue2lncgm6.ws.codeinstitute-ide.net',
+    'https://8000-kylemardell-djangorestf-fvsoltao0z8.ws.codeinstitute-ide.net',
 ]
 
 # Application definition
